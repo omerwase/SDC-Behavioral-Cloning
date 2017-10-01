@@ -45,35 +45,21 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-The employed CNN can be found in model.py (lines 80 to 97). It is composed of 4 convolutional layers and 4 dense layers:
-   1. Lambda layer: for pixel normalization between -0.5 to 0.5
-   2. Conv layer: 8 filters @ 5x5 with RELU activation
-   3. Conv layer: 16 filters @ 5x5 with RELU activation
-   4. Maxpool
-   5. Conv layer: 24 filters @ 5x5 with RELU activation
-   6. Maxpool
-   7. Conv layer: 32 filters @ 5x5 with RELU activation
-   8. Maxpool
-   9. Dense layer: 320 outputs, no activation
-  10. Dense layer: 64 outputs, no activation
-  11. Dense layer: 16 outputs, no activation
-  12. Dense layer: 1 output, no activation
+The CNN implementation can be found in model.py (lines 80 to 97) and is described in a later section below. It is composed of 4 convolutional layers and 4 dense layers. A smaller model would have been sufficient for track 1. This particular model was chosen to be able to drive on track 2; however, those attempts were not successful.
 
 #### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
-
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+Dropout layers were employed at various points in the network to reduce overfitting. However using dropout with longer training (more epochs) did not improve the loss in any significant manner. More training data with early termination provided better results, over fewer epochs. Dropout layers were removed in the final CNN model.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model uses an adam optimizer, thus learning rate was not tuned manually (model.py line 101). MSE was used to calculate loss since this is a linear regression model (model.py line 101).
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+Training data was collect using the Udacity provided simulator. The mouse was used to steer the car for analog input. Most of the data was based on center driving. Recovery data was collected from sections of the track where the car drove off.
 
-For details about how I created the training data, see the next section. 
+See next section for details on training strategy.
 
 ### Model Architecture and Training Strategy
 
@@ -95,11 +81,19 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-![alt text][image1]
+The employed CNN can be found in model.py (lines 80 to 97). It is composed of 4 convolutional layers and 4 dense layers:
+   1. Lambda layer: for pixel normalization between -0.5 to 0.5
+   2. Conv layer: 8 filters @ 5x5 with RELU activation
+   3. Conv layer: 16 filters @ 5x5 with RELU activation
+   4. Maxpool
+   5. Conv layer: 24 filters @ 5x5 with RELU activation
+   6. Maxpool
+   7. Conv layer: 32 filters @ 5x5 with RELU activation
+   8. Maxpool
+   9. Dense layer: 320 outputs, no activation
+  10. Dense layer: 64 outputs, no activation
+  11. Dense layer: 16 outputs, no activation
+  12. Dense layer: 1 output, no activation
 
 #### 3. Creation of the Training Set & Training Process
 
