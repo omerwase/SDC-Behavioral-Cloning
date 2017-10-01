@@ -1,20 +1,11 @@
-#**Behavioral Cloning** 
+# Self Driving Car Project 3: Behavioral Cloning
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Behavioral Cloning Project**
-
-The goals / steps of this project are the following:
-* Use the simulator to collect data of good driving behavior
-* Build, a convolution neural network in Keras that predicts steering angles from images
-* Train and validate the model with a training and validation set
-* Test that the model successfully drives around track one without leaving the road
-* Summarize the results with a written report
-
+**Project Outline:**
+* Driving data (centre camera images and steering angles) was collected from the SDC simulator
+* A convolutional neural network was trained on this data to predict steering angles
+* The trained model was used to autonomously drive the car in the simulator
+* Additional data was collected where the car would go off-course
+* The final model successfully drove the car around the first track
 
 [//]: # (Image References)
 
@@ -27,7 +18,7 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+### Below the [rubric points](https://review.udacity.com/#!/rubrics/432/view) are addressed individually
 
 ---
 ###Files Submitted & Code Quality
