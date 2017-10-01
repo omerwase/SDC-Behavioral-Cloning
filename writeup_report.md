@@ -12,10 +12,13 @@
 [image1]: ./examples/resized1.png "Resized Image 1"
 [image2]: ./examples/resized2.png "Resized Image 2"
 [image3]: ./examples/resized3.png "Resized Image 3"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image4]: ./examples/center1.jpg "Center Driving 1"
+[image5]: ./examples/center2.jpg "Center Driving 2"
+[image6]: ./examples/center3.jpg "Center Driving 3"
+[image7]: ./examples/recovery1.jpg "Recovery Driving 1"
+[image8]: ./examples/recovery2.jpg "Recovery Driving 2"
+[image9]: ./examples/recovery3.jpg "Recovery Driving 3"
+[image10]: ./examples/recovery4.jpg "Recovery Driving 4"
 
 ## Rubric Points
 ### Below the [rubric points](https://review.udacity.com/#!/rubrics/432/view) are addressed individually
@@ -69,9 +72,9 @@ To begin a simple model was used to test the entire process of data collection, 
 
 Images from the car's camera were shrunk and cropped to be 70x70 (rows x columns) before they were fed into the network. This was done in both model.py (lines 60 and 69) and drive.py (lines 66 and 67). Originally images were 160x320. The top 65 and bottom 15 rows contained unrelated scenery and were cropped. The 320 image columns were resized to 70 to improve the networks performance during training and autonomous driving. Below are some examples of resized images used in training:
 
+![alt text][image1]
+![alt text][image2]
 ![alt text][image3]
-![alt text][image4]
-![alt text][image5]
 
 The CNN architecture was improved incrementally by adding convolutional, maxpooling, and dense layers. The model was fine-tuned to minimize loss and avoid overfitting. Originally dropout layers were added to address overfitting (which tended to occur after 5 epochs ). These were removed in the final implementation because additional training data provided better results over fewer epochs. The final model architecture can be found below.
 
@@ -93,28 +96,17 @@ The employed CNN can be found in model.py (lines 80 to 97). It is composed of 4 
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+The capture good driving behavior, the car was driven on the center of the track for 2 laps. Then the car was center-driven for 1 lap in the opposite direction to help the model generalize driving behavior. Below are some images of center driving:
 
-![alt text][image2]
+![alt text][image4]  
+![alt text][image5]  
+![alt text][image6]  
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+The model was trained on these images and used to drive the car autonomously. The model functioned well with this data on track 1; however, at certian points on the track the car would drive off the road. To correct this behavior additional 'recovery' data was collected. For recovery data the car was driven close to the edge where it would drive off autonomously, and then it was corrected to return to the center of the road. Data was only collected during the actual recovery part as shown below:
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+![alt text][image7]  
+![alt text][image8]  
+![alt text][image9]  
+![alt text][image10]  
 
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+This process was repeated for all sections of the track where the model did not perform as expected. In the end the model was able to successfully drive the car through the whole track. An example of a successful lap completed autonmously by the model can be found in run1.mp4.
