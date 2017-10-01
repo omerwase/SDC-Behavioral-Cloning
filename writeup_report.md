@@ -46,14 +46,14 @@ The model.py file contains the code for training and saving the convolution neur
 #### 1. An appropriate model architecture has been employed
 
 The employed CNN can be found in model.py (lines 80 to 97). It is composed of 4 convolutional layers and 4 dense layers:
-* 1. Lambda layer: for pixel normalization between -0.5 to 0.5
-* 2. Conv layer: 8 filters @ 5x5 with RELU activation
-* 3. Conv layer: 16 filters @ 5x5 with RELU activation
-* 4. Maxpool
-* 5. Conv layer: 24 filters @ 5x5 with RELU activation
-* 6. Maxpool
-* 7. Conv layer: 32 filters @ 5x5 with RELU activation
-* 8. Maxpool
+  1. Lambda layer: for pixel normalization between -0.5 to 0.5
+  2. Conv layer: 8 filters @ 5x5 with RELU activation
+  3. Conv layer: 16 filters @ 5x5 with RELU activation
+  4. Maxpool
+  5. Conv layer: 24 filters @ 5x5 with RELU activation
+  6. Maxpool
+  7. Conv layer: 32 filters @ 5x5 with RELU activation
+  8. Maxpool
 
 #### 2. Attempts to reduce overfitting in the model
 
