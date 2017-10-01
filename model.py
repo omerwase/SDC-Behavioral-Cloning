@@ -19,7 +19,7 @@ from keras.layers import Flatten, Dense, Lambda, Convolution2D, MaxPooling2D, Dr
 epochs = 7
 batch_size = 32
 
-# flipped = True indicates each image will be flipped with its angel for training
+# flipped = True indicates each image and angle will be flipped for additional data
 flipped = True
 flip_factor = 1
 
