@@ -97,6 +97,7 @@ model.add(Dense(16))
 model.add(Dense(1))
 
 # Train model
+# flip_factor is used below to multiply number of training samples by 2, if flipped images are used
 model.compile(loss='mse', optimizer='adam')
 model.fit_generator(train_generator, samples_per_epoch=len(train_samples)*flip_factor, 
                     validation_data=validation_generator, nb_val_samples=len(validation_samples)*flip_factor, 
