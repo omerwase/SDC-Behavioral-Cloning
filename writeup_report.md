@@ -9,9 +9,9 @@
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
+[image1]: ./examples/resized1.png "Resized Image 1"
+[image2]: ./examples/resized2.png "Resized Image 2"
+[image3]: ./examples/resized3.png "Resized Image 3"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
@@ -65,19 +65,15 @@ See next section for details on training strategy.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+To begin a simple model was used to test the entire process of data collection, model training, and autonomous driving. The car was driven for 3 laps (2 froward and 1 reverse track direciton). Images from the simulated car's center camera were used for training. The model simply flattened these images and fed into a single output node to predict steering angles. Using this approach the model was able to effectively drive the car in a straight line.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+Images from the car's camera were shrunk and cropped to be 70x70 (rows x columns) before they were fed into the network. This was done in both model.py (lines 60 and 69) and drive.py (lines 66 and 67). Originally images were 160x320. The top 65 and bottom 15 rows contained unrelated scenery and were cropped. The 320 image columns were resized to 70 to improve the networks performance during training and autonomous driving. Below are some examples of resized images used in training:
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+![alt text][image3]
+![alt text][image4]
+![alt text][image5]
 
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
-
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+The CNN architecture was improved incrementally by adding convolutional, maxpooling, and dense layers. The model was fine-tuned to minimize loss and avoid overfitting. Originally dropout layers were added to address overfitting (which tended to occur after 5 epochs ). These were removed in the final implementation because additional training data provided better results over fewer epochs. The final model architecture can be found below.
 
 #### 2. Final Model Architecture
 
@@ -93,7 +89,7 @@ The employed CNN can be found in model.py (lines 80 to 97). It is composed of 4 
    9. Dense layer: 320 outputs, no activation
   10. Dense layer: 64 outputs, no activation
   11. Dense layer: 16 outputs, no activation
-  12. Dense layer: 1 output, no activation
+  12. Dense layer: 1 output, no activation, final layer with predicted steering angle
 
 #### 3. Creation of the Training Set & Training Process
 
