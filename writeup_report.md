@@ -96,7 +96,7 @@ The employed CNN can be found in model.py (lines 80 to 97). It is composed of 4 
 
 #### 3. Creation of the Training Set & Training Process
 
-The capture good driving behavior, the car was driven on the center of the track for 2 laps. Then the car was center-driven for 1 lap in the opposite direction to help the model generalize driving behavior. Below are some images of center driving:
+To capture good driving behavior, the car was driven on the center of the track for 2 laps. Then the car was center-driven for 1 lap in the opposite direction to help the model generalize driving behavior. Below are some images of center driving:
 
 ![alt text][image4]  
 ![alt text][image5]  
@@ -109,4 +109,4 @@ The model was trained on these images and used to drive the car autonomously. Th
 ![alt text][image9]  
 ![alt text][image10]  
 
-This process was repeated for all sections of the track where the model did not perform as expected. In the end the model was able to successfully drive the car through the whole track. An example of a successful lap completed autonmously by the model can be found in run1.mp4.
+This process was repeated for all sections of the track where the model did not perform as expected. In the end the model was able to successfully drive the car through the whole track. An example of a successful lap completed autonmously by the model can be found in [run1.mp4](./run1.mp4).
