@@ -30,7 +30,7 @@ Self Driving Car Project 3: Behavioral Cloning using Udacity's SDC Simulator
 [image10]: ./examples/recovery4.jpg "Recovery Driving 4"
 
 ---
-### Files Submitted & Code Quality
+## Files Submitted & Code Quality
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
@@ -45,14 +45,12 @@ Using the Udacity provided simulator and included drive.py and model.h5 files, t
 ```sh
 python drive.py model.h5
 ```
-
-#### 3. Submission code is usable and readable
-
+  
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline used for training and validating the model with explanatory comments.
 
-### Model Architecture and Training Strategy
+## Model Architecture and Training Strategy
 
-#### 1. An appropriate model architecture has been employed
+#### 1. Convolutional Neural Network
 
 The CNN implementation can be found in model.py (lines 80 to 97) and is described in a later section below. It is composed of 4 convolutional layers and 4 dense layers. A smaller model would have been sufficient for track 1. This particular model was chosen to be able to drive on track 2; however, those attempts were not successful.
 
@@ -70,7 +68,7 @@ Training data was collect using the Udacity provided simulator. The mouse was us
 
 See next section for details on training strategy.
 
-### Model Architecture and Training Strategy
+## Implementation
 
 #### 1. Solution Design Approach
 
