@@ -1,5 +1,14 @@
 # Self Driving Car Project 3: Behavioral Cloning
 
+Self Driving Car Project 3: Behavioral Cloning using Udacity's SDC Simulator
+  
+**Included Files**:
+* model.py: model implemenation, used to train and create model.h5
+* model.h5: saved trained model used for autonomous driving
+* drive.py: uses model.h5 to drive the car in Udacity's SDC simulator
+* run1.mp4: successful lap completed autonomously
+* writeup_report.md: project writeup with implementation details
+
 **Project Outline:**
 * Driving data (centre camera images and steering angles) was collected from the SDC simulator
 * A convolutional neural network was trained on this data to predict steering angles
@@ -19,9 +28,6 @@
 [image8]: ./examples/recovery2.jpg "Recovery Driving 2"
 [image9]: ./examples/recovery3.jpg "Recovery Driving 3"
 [image10]: ./examples/recovery4.jpg "Recovery Driving 4"
-
-## Rubric Points
-### Below the [rubric points](https://review.udacity.com/#!/rubrics/432/view) are addressed individually
 
 ---
 ### Files Submitted & Code Quality
